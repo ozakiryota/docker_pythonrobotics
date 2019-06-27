@@ -22,5 +22,9 @@ RUN cd /home && \
 	git clone https://github.com/AtsushiSakai/PythonRobotics && \
 	cd PythonRobotics
 	# /bin/bash runtests.sh
+# keep latest
+RUN echo "#!/bin/bash\n\git pull origin master" >> /home/PythonRobotics/git_pull.sh && \
+	chmod 777 /home/PythonRobotics/git_pull.sh && \
+	echo "/home/PythonRobotics/git_pull.sh" >> ~/.bashrc
 ######### initial position ##########
 WORKDIR /home/PythonRobotics
